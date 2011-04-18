@@ -53,8 +53,6 @@ rm -rf %buildroot
 %files
 %defattr(-,root,root)
 %doc Changes README LICENSE
-%{_mandir}/man3/*
+%{_mandir}/man?/*
 %perl_vendorlib/*
-/usr/bin/linktractor
-/usr/share/man/man1/linktractor.1.lzma
-
+%{_bindir}/linktractor
