@@ -1,23 +1,23 @@
 %define upstream_name    HTML-SimpleLinkExtor
 %define upstream_version 1.23
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    A simple way to extract links
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	A simple way to extract links
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(HTML::LinkExtor)
-BuildRequires: perl(LWP::UserAgent)
-BuildRequires: perl(Test::Output)
-BuildRequires: perl(URI)
-BuildRequires: perl(URI::file)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(HTML::LinkExtor)
+BuildRequires:	perl(LWP::UserAgent)
+BuildRequires:	perl(Test::Output)
+BuildRequires:	perl(URI)
+BuildRequires:	perl(URI::file)
+BuildArch:	noarch
 
 %description
 This is a simple HTML link extractor designed for the person who does not
@@ -36,23 +36,32 @@ problems.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README LICENSE
 %{_mandir}/man?/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 %{_bindir}/linktractor
+
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 1.230.0-2mdv2011.0
++ Revision: 655223
+- update file list
+- rebuild for updated spec-helper
+
+* Mon Dec 21 2009 Jérôme Quelin <jquelin@mandriva.org> 1.230.0-1mdv2011.0
++ Revision: 480883
+- import perl-HTML-SimpleLinkExtor
+
+
+* Mon Dec 21 2009 cpan2dist 1.23-1mdv
+- initial mdv release, generated with cpan2dist
