@@ -1,15 +1,15 @@
 %define upstream_name    HTML-SimpleLinkExtor
-%define upstream_version 1.23
+%define upstream_version 1.25
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 1.25
+Release:	1
 
 Summary:	A simple way to extract links
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/HTML/HTML-SimpleLinkExtor-1.25.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(HTML::LinkExtor)
@@ -65,3 +65,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Mon Dec 21 2009 cpan2dist 1.23-1mdv
 - initial mdv release, generated with cpan2dist
+
