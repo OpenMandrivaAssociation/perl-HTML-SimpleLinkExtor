@@ -1,15 +1,15 @@
 %define upstream_name    HTML-SimpleLinkExtor
-%define upstream_version 1.25
+%define upstream_version 1.27
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 1.25
-Release:	2
+Version:	%perl_convert_version %{upstream_version}
+Release:	1
 
 Summary:	A simple way to extract links
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/HTML/HTML-SimpleLinkExtor-1.25.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(HTML::LinkExtor)
@@ -50,19 +50,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man?/*
 %{perl_vendorlib}/*
 %{_bindir}/linktractor
-
-
-%changelog
-* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 1.230.0-2mdv2011.0
-+ Revision: 655223
-- update file list
-- rebuild for updated spec-helper
-
-* Mon Dec 21 2009 Jérôme Quelin <jquelin@mandriva.org> 1.230.0-1mdv2011.0
-+ Revision: 480883
-- import perl-HTML-SimpleLinkExtor
-
-
-* Mon Dec 21 2009 cpan2dist 1.23-1mdv
-- initial mdv release, generated with cpan2dist
-
