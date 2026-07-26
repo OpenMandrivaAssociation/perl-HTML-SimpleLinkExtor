@@ -1,15 +1,13 @@
 %define upstream_name    HTML-SimpleLinkExtor
-%define upstream_version 1.273
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	1.273
+Release:	2
 
 Summary:	A simple way to extract links
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/nigelhorne/HTML-SimpleLinkExtor
-Source0:	https://cpan.metacpan.org/authors/id/N/NH/NHORNE/HTML-SimpleLinkExtor-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/N/NH/NHORNE/HTML-SimpleLinkExtor-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -34,7 +32,7 @@ parse what that module can handle. Invalid HTML or XHTML may cause
 problems.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
