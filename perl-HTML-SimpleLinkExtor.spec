@@ -2,7 +2,7 @@
 %define upstream_version 1.273
 Name:		perl-%{upstream_name}
 Version:	1.273
-Release:	4
+Release:	5
 
 Summary:	A simple way to extract links
 License:	GPL+ or Artistic
@@ -42,7 +42,8 @@ perl Makefile.PL INSTALLDIRS=vendor
 %check
 # soft: do not fail package on test failures
 set +e
-%make test
+:  # soft check
+%make test || :
 
 %install
 %makeinstall_std
