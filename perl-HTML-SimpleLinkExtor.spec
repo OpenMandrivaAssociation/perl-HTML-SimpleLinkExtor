@@ -2,7 +2,7 @@
 %define upstream_version 1.273
 Name:		perl-%{upstream_name}
 Version:	1.273
-Release:	5
+Release:	6
 
 Summary:	A simple way to extract links
 License:	GPL+ or Artistic
@@ -11,6 +11,7 @@ Url:		https://github.com/nigelhorne/HTML-SimpleLinkExtor
 Source0:	https://cpan.metacpan.org/authors/id/N/NH/NHORNE/HTML-SimpleLinkExtor-1.273.tar.gz
 
 BuildRequires:	make
+BuildRequires:	perl(Test::Most)
 BuildRequires:	perl-devel
 BuildRequires:	perl(HTML::LinkExtor)
 BuildRequires:	perl(LWP::UserAgent)
@@ -37,19 +38,19 @@ problems.
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make
-
+%make_build
 %check
 # soft: do not fail package on test failures
 set +e
 :  # soft check
+:  # soft
 %make test || :
 
 %install
 %makeinstall_std
 
 %files
-%doc Changes README LICENSE
+%doc Changes LICENSE
 %{_mandir}/man?/*
 %{perl_vendorlib}/*
 %{_bindir}/linktractor
