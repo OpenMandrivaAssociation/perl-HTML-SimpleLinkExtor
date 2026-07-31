@@ -2,7 +2,7 @@
 %define upstream_version 1.273
 Name:		perl-%{upstream_name}
 Version:	1.273
-Release:	26
+Release:	27
 
 Summary:	A simple way to extract links
 License:	GPL+ or Artistic
